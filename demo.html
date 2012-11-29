@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gridy.js Demo</title>
+  <meta charset="utf8">
+    <style>
+
+        #category, #category2, #featured, #videos {
+            margin : 10px;
+        }
+
+        #category ul li,
+        #category2 ul li,
+        #featured ul li,
+        #videos ul li {
+            border        : 3px solid #999;
+            border-radius : 5px;
+            padding       : 5px;
+        }
+
+        #category ul li {
+            margin      : 3px;
+            padding     : 5px;
+            width       : 150px;
+            line-height : 2;
+            text-align  : center;
+        }
+
+        #category2 ul li {
+            margin      : 3px;
+            padding     : 0 5px;
+            width       : 150px;
+            height      : 25px;
+            line-height : 1.5;
+            text-align  : center;
+        }
+
+        #featured ul li {
+            width  : 75px;
+            height : 40px;
+            margin : 3px;
+        }
+
+        #videos ul li {
+            width  : 135px;
+            height : 60px;
+            margin : 3px;
+            float  : left;
+        }
+
+        .control {
+            display             : inline-block;
+            line-height         : 2;
+            border              : 1px solid #ddd;
+            margin              : 5px 5px 0 0;
+            padding             : 0 5px;
+            cursor              : pointer;
+            -webkit-user-select : none
+        }
+
+        .focused {
+            border-color : #900 !important
+        }
+    </style>
+</head>
+<body>
+
+<div id="category">
+    <script type="text/tpl">
+        <li>{{:name}}</li>
+    </script>
+    <div class="wrapper">
+        <div class="content"></div>
+    </div>
+</div>
+
+<div id="category2">
+    <script type="text/tpl">
+        <li>{{:name}}</li>
+    </script>
+    <div class="wrapper">
+        <div class="content"></div>
+    </div>
+</div>
+
+<div id="featured">
+    <script type="text/tpl">
+        <li>{{:name}}</li>
+    </script>
+    <div class="wrapper">
+        <div class="content"></div>
+    </div>
+</div>
+
+<div id="videos">
+    <script type="text/tpl">
+        <li>{{:name}}</li>
+    </script>
+    <div class="wrapper">
+        <div class="content"></div>
+    </div>
+</div>
+
+<script src="gridy.min.js"></script>
+<!--  http://api.movieclips.com/doc/gettingvideosanddata/videofeedtypes.html#videos-feeds   -->
+
+<script>
+    var data = [
+        {name: 1},
+        {name: 2},
+        {name: 3},
+        {name: 4},
+        {name: 5},
+        {name: 6},
+        {name: 7},
+        {name: 8},
+        {name: 9},
+        {name: 10}
+    ];
+
+    var categories = new Gridy("#category", {
+                                   rows      : 1,
+                                   cols      : 1,
+                                   transSpeed: 300,
+                                   index     : 4,
+                                   data      : data,
+                                   controls  : true
+                               }
+    );
+
+    var categories2 = new Gridy("#category2", {
+                                    rows       : 5,
+                                    cols       : 1,
+                                    transSpeed : 300,
+                                    index      : 2,
+                                    data       : data,
+                                    orientation: 'vertical',
+                                    controls   : true
+                                }
+    );
+
+    var featured = new Gridy("#featured", {
+                                 rows    : 1,
+                                 cols    : 5,
+                                 controls: true,
+                                 data    : data
+                             }
+    );
+
+    var videos = new Gridy("#videos", {
+                               rows       : 4,
+                               cols       : 2,
+                               orientation: 'vertical',
+                               controls   : true
+                           }
+    ).insert(data);
+</script>
+</body>
+</html>
