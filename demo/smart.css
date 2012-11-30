@@ -1,0 +1,82 @@
+html {
+  width   : 1024px;
+  height  : 100%;
+  margin  : 0;
+  padding : 0;
+}
+
+#category, #category2, #featured, #videos {
+  margin : 10px;
+}
+
+#category ul li,
+#category2 ul li,
+#featured ul li,
+#videos ul li {
+  border         : 3px solid #ddd;
+  background     : #fff;
+  border-radius  : 9px;
+  padding        : 5px;
+  color          : #555;
+  font-variant   : small-caps;
+  letter-spacing : 2px;
+  text-align     : center;
+}
+
+#category ul li {
+  margin      : 3px;
+  padding     : 5px;
+  width       : 475px;
+  line-height : 2;
+  text-align  : center;
+}
+
+#category2 ul li {
+  margin      : 3px;
+  padding     : 0 5px;
+  width       : 150px;
+  height      : 25px;
+  line-height : 1.5;
+  text-align  : center;
+}
+
+#featured ul li {
+  width  : 96px;
+  height : 80px;
+  margin : 3px;
+}
+
+#videos ul li {
+  width  : 135px;
+  height : 100px;
+  margin : 3px;
+  float  : left;
+}
+
+#category {
+  position : absolute;
+  left     : 190px;
+  top      : 10px;
+}
+
+#category2 {
+  position : absolute;
+  left     : 3px;
+  top      : 170px;
+}
+
+#videos {
+  position : absolute;
+  left     : 200px;
+  top      : 90px;
+}
+
+#featured {
+  position : absolute;
+  left     : 200px;
+  top      : 470px;
+}
+
+.active .focused {
+  border-color : #900 !important;
+}

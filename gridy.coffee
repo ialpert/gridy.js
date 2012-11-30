@@ -51,19 +51,13 @@ paginate = (arr, size) ->
 log = (o) -> console?.log o
 dir = (o) -> console?.dir o
 
-# Guessing what prefix to use for internal transition
-transition = ''
-for trans in ['WebkitTransition', 'MozTransition', 'OTransition', 'MsTransition', 'transition']
-  if typeof document.body.style[trans] == 'string'
-    transition = trans
-
 # Interntal templating function, can be replaced in config
 tpl = (str) ->
   str = str.replace('data-src', 'src')
   (data) ->
     res = ''
     for val in data
-      res += str.replace(/\{\{:(\w*)\}\}/g, (s, p) -> val[p] or s)
+      res += str.replace(/\{(\w*)\}/g, (s, p) -> val[p] or s)
     res
 
 # Selector function
@@ -110,6 +104,9 @@ class @Gridy
       @options[key] = val
 
     @el = sel(document, component_sel)
+    if not @el
+      throw "DOM element with selector #{component_sel} is not found"
+
     @wrapper = sel @el, @options.selectors.wrapper
     @content = sel @el, @options.selectors.content
 
@@ -118,6 +115,12 @@ class @Gridy
     #Using intertal templating factory if not provided in config
     unless @options.tpl
       @options.tpl = tpl tpl_str.innerHTML
+
+    # Guessing what prefix to use for internal transition
+    transition = ''
+    for trans in ['WebkitTransition', 'MozTransition', 'OTransition', 'MsTransition', 'transition']
+      if typeof document.body.style[trans] == 'string'
+        transition = trans
 
     #Using intertal animation function if not provided in config
     unless @options.animate
