@@ -105,7 +105,7 @@ class @Gridy
 
     @el = sel(document, component_sel)
     if not @el
-      throw "DOM element with selector #{component_sel} is not found"
+      throw new Error "DOM element with selector #{component_sel} is not found"
 
     @wrapper = sel @el, @options.selectors.wrapper
     @content = sel @el, @options.selectors.content
@@ -118,9 +118,9 @@ class @Gridy
 
     # Guessing what prefix to use for internal transition
     transition = ''
-    for trans in ['WebkitTransition', 'MozTransition', 'OTransition', 'MsTransition', 'transition']
-      if typeof document.body.style[trans] == 'string'
-        transition = trans
+    for trans in ['WebkitT', 'MozT', 'OT', 'MsT', 't']
+      if typeof document.body.style[trans + 'ransition'] == 'string'
+        transition = trans + 'ransition'
 
     #Using intertal animation function if not provided in config
     unless @options.animate
@@ -172,8 +172,8 @@ class @Gridy
       first_elem = @elements[0]
 
       #Setting up styles for content and wrapper
-      css @content, content_css;
-      css @wrapper, wrapper_css;
+      css @content, content_css
+      css @wrapper, wrapper_css
 
       #Setting up styles for elements
       if @elements
@@ -198,7 +198,8 @@ class @Gridy
       else
         @content.style.height = "#{@pages.length * heightOf first_page}px"
 
-      # Setting data-c and data-r attributes, based on element physical "natural" position.
+      # Setting data-c and data-r attributes,
+      # based on element physical "natural" position.
       # So we are able to navigate between elements as we see them
       rows = {}
       cols = {}
@@ -228,7 +229,7 @@ class @Gridy
 
   # Changing active position using direction param
   move       : (direction)->
-    focused = sel @content, @options.selectors.focused;
+    focused = sel @content, @options.selectors.focused
     if focused
       r = parseInt focused.getAttribute "data-r"
       c = parseInt focused.getAttribute "data-c"
@@ -252,8 +253,8 @@ class @Gridy
         focused.classList.remove @options.focusedClass
         @focus next, @options.transSpeed
       else
-        # If not then triggring callback. For instance we can foucs another control
-        # in this situation
+        # If not then triggring callback.
+        # For instance we can foucs another control in this situation
         @options.onExit direction
 
     return @
@@ -261,7 +262,7 @@ class @Gridy
   # Changing active element's focus
 
   focus: (focused, speed = 0)->
-    focused.classList.add(@options.focusedClass);
+    focused.classList.add @options.focusedClass
     page = focused.parentElement
 
     if @options.orientation is "horizontal"

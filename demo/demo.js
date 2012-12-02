@@ -16,7 +16,7 @@
     {name: 12}
   ];
 
-  components.category = new Gridy("#category", {
+/*  components.category = new Gridy("#category", {
                                     rows      : 1,
                                     cols      : 1,
                                     transSpeed: 500,
@@ -28,7 +28,7 @@
                                       }
                                     }
                                   }
-  );
+  );*/
 
   components.category2 = new Gridy("#category2", {
                                      rows       : 6,
@@ -46,7 +46,7 @@
   );
 
   components.featured = new Gridy("#featured", {
-                                    rows  : 1,
+                                    rows  : 2,
                                     cols  : 4,
                                     data  : data,
                                     onExit: function(direction) {
@@ -59,14 +59,14 @@
 
   components.videos = new Gridy("#videos", {
                                   rows       : 3,
-                                  cols       : 3,
+                                  cols       : 4,
                                   orientation: 'vertical',
                                   onExit     : function(direction) {
                                     if (direction === 'left') {
                                       active('#category2');
                                     }
                                     if (direction === 'up') {
-                                      active('#category');
+                                     // active('#category');
                                     }
                                     if (direction === 'down') {
                                       active('#featured');
@@ -91,6 +91,6 @@
     }
   });
 
-  active('#category');
+  active('#category2');
 
 })();
