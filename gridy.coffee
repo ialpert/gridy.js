@@ -262,14 +262,15 @@ class @Gridy
   # Changing active element's focus
 
   focus: (focused, speed = 0)->
-    focused.classList.add @options.focusedClass
-    page = focused.parentElement
+    if focused
+      focused.classList.add @options.focusedClass
+      page = focused.parentElement
 
-    if @options.orientation is "horizontal"
-      @options.animate 'left', -page.offsetLeft, speed
-    else
-      @options.animate 'top', -page.offsetTop, speed
+      if @options.orientation is "horizontal"
+        @options.animate 'left', -page.offsetLeft, speed
+      else
+        @options.animate 'top', -page.offsetTop, speed
 
-    #Triggering onChange callback and passing focused param
-    @options.onChange focused
+      #Triggering onChange callback and passing focused param
+      @options.onChange focused
     return @
