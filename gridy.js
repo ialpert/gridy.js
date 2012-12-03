@@ -143,7 +143,7 @@
       }
       this.el = sel(document, component_sel);
       if (!this.el) {
-        throw "DOM element with selector " + component_sel + " is not found";
+        throw new Error("DOM element with selector " + component_sel + " is not found");
       }
       this.wrapper = sel(this.el, this.options.selectors.wrapper);
       this.content = sel(this.el, this.options.selectors.content);
@@ -152,11 +152,11 @@
         this.options.tpl = tpl(tpl_str.innerHTML);
       }
       transition = '';
-      _ref = ['WebkitTransition', 'MozTransition', 'OTransition', 'MsTransition', 'transition'];
+      _ref = ['WebkitT', 'MozT', 'OT', 'MsT', 't'];
       for (_i = 0, _len = _ref.length; _i < _len; _i++) {
         trans = _ref[_i];
-        if (typeof document.body.style[trans] === 'string') {
-          transition = trans;
+        if (typeof document.body.style[trans + 'ransition'] === 'string') {
+          transition = trans + 'ransition';
         }
       }
       if (!this.options.animate) {
@@ -311,14 +311,16 @@
       if (speed == null) {
         speed = 0;
       }
-      focused.classList.add(this.options.focusedClass);
-      page = focused.parentElement;
-      if (this.options.orientation === "horizontal") {
-        this.options.animate('left', -page.offsetLeft, speed);
-      } else {
-        this.options.animate('top', -page.offsetTop, speed);
+      if (focused) {
+        focused.classList.add(this.options.focusedClass);
+        page = focused.parentElement;
+        if (this.options.orientation === "horizontal") {
+          this.options.animate('left', -page.offsetLeft, speed);
+        } else {
+          this.options.animate('top', -page.offsetTop, speed);
+        }
+        this.options.onChange(focused);
       }
-      this.options.onChange(focused);
       return this;
     };
 
