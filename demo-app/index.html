@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Gridy.js Demo</title>
+  <meta charset="utf8">
+  <link rel="stylesheet" type="text/css" href="http://necolas.github.com/normalize.css/2.0.1/normalize.css">
+  <link rel="stylesheet" type="text/css" href="smart.css">
+</head>
+<body>
+    <section id="app">
+    <nav id="category">
+        <script type="text/tpl">
+            <li class="{name}"><a href="{url}">{name}</a></li>
+        </script>
+        <div class="wrapper">
+            <div class="content"></div>
+        </div>
+    </nav>
+
+    <section class="featured col2">
+        <h2>Featured</h2>
+        <div id="featured">
+            <script type="text/tpl">
+                <li><figure><img data-src="images/posters/{id}.jpg"></figure></li>
+            </script>
+            <div class="wrapper">
+                <div class="content"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="movies col4">
+        <h2>Movies</h2>
+        <div id="videos">
+            <script type="text/tpl">
+                <li><figure><img data-src="images/posters/s{id}.jpg"></figure></li>
+            </script>
+            <div class="wrapper">
+                <div class="content"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="col6">
+        <span class="arrow_left">left</span>
+        <span class="arrow_right">right</span>
+        <span class="arrow_up">up</span>
+        <span class="arrow_down">down</span>
+    </footer>
+
+</section>
+<script src="../gridy.min.js"></script>
+<script src="smart.js"></script>
+</body>
+</html>
