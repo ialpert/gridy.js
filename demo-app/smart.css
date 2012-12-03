@@ -15,9 +15,12 @@ a {
 }
 
 body {
-  background  : #000;
-  color       : #666;
-  font-family : "Helvetica Neue", Helvetica, Arial, sans-serif
+  background          : #000;
+  color               : #666;
+  -moz-user-select    : none;
+  -webkit-user-select : none;
+  -ms-user-select     : none;
+  font-family         : "Helvetica Neue", Helvetica, Arial, sans-serif
 }
 
 footer {
