@@ -33,19 +33,19 @@
                                     data      : [
                                       {
                                         name: 'html5',
-                                        url: '#html5'
+                                        url : '#html5'
                                       },
                                       {
                                         name: 'home',
-                                        url: '#home'
+                                        url : '#home'
                                       },
                                       {
                                         name: 'video',
-                                        url: '#video'
+                                        url : '#video'
                                       },
                                       {
                                         name: 'music',
-                                        url: '#music'
+                                        url : '#music'
                                       },
                                       {
                                         name: 'github',
@@ -57,6 +57,7 @@
                                       }
 
                                     ],
+                                    controls  : false,
                                     onExit    : function(direction) {
                                       if (direction === 'down') {
                                         active('#videos');
@@ -70,6 +71,7 @@
     cols       : 2,
     orientation: 'vertical',
     data       : data,
+    controls   : false,
     onExit     : function(direction) {
       if (direction === 'right') {
         active('#videos');
@@ -85,6 +87,7 @@
     cols       : 5,
     orientation: 'horizontal',
     data       : data,
+    controls   : false,
     onExit     : function(direction) {
       if (direction === 'up') {
         active('#category');
