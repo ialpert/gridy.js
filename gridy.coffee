@@ -132,13 +132,13 @@ class @Gridy
     @insert @options.data if @options.data
 
     # Setting up controls if required by config
-    if options.controls
+    if @options.controls
       controls = []
 
-      if options.cols > 1 or options.rows is 1
+      if @options.cols > 1 or options.rows is 1
         controls.push 'left'
         controls.push 'right'
-      if options.rows > 1
+      if @options.rows > 1
         controls.push 'up'
         controls.push 'down'
 

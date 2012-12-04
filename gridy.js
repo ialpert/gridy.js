@@ -168,13 +168,13 @@
       if (this.options.data) {
         this.insert(this.options.data);
       }
-      if (options.controls) {
+      if (this.options.controls) {
         controls = [];
-        if (options.cols > 1 || options.rows === 1) {
+        if (this.options.cols > 1 || options.rows === 1) {
           controls.push('left');
           controls.push('right');
         }
-        if (options.rows > 1) {
+        if (this.options.rows > 1) {
           controls.push('up');
           controls.push('down');
         }

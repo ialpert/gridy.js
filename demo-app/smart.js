@@ -30,22 +30,23 @@
                                     cols      : 6,
                                     transSpeed: 500,
                                     index     : 0,
+                                    controls  : false,
                                     data      : [
                                       {
                                         name: 'html5',
-                                        url: '#html5'
+                                        url : '#html5'
                                       },
                                       {
                                         name: 'home',
-                                        url: '#home'
+                                        url : '#home'
                                       },
                                       {
                                         name: 'video',
-                                        url: '#video'
+                                        url : '#video'
                                       },
                                       {
                                         name: 'music',
-                                        url: '#music'
+                                        url : '#music'
                                       },
                                       {
                                         name: 'github',
@@ -70,6 +71,7 @@
     cols       : 2,
     orientation: 'vertical',
     data       : data,
+    controls   : false,
     onExit     : function(direction) {
       if (direction === 'right') {
         active('#videos');
@@ -83,6 +85,7 @@
   components.videos = new Gridy('#videos', {
     rows       : 2,
     cols       : 5,
+    controls   : false,
     orientation: 'horizontal',
     data       : data,
     onExit     : function(direction) {
