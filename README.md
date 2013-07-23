@@ -30,19 +30,19 @@ Markup example:
 JS example:
 ```javascript
 new Gridy("#category", {
-                                    rows      : 1,
-                                    cols      : 1,
-                                    transSpeed: 500,
-                                    index     : 4,
-                                    data      : data,
-                                    onExit    : function(direction) {}
-                                  }                               
+  rows      : 1,
+  cols      : 1,
+  transSpeed: 500,
+  index     : 4,
+  data      : data,
+  onExit    : function(direction) {}
+}
 ```
 
 Default values:
 
 ```javascript
-  default_confing = {
+  default_config = {
     rows: 1,
     cols: 1,
     transSpeed: 500,
